@@ -1,6 +1,13 @@
 import React from "react"
 import './layout.css'
 
+const btnValues =[
+    [7, 8, 9, "DEL"],
+    [4, 5, 6, "="],
+    [1, 2, 3, "-"],
+    [".", 0, "/", "X"]
+]
+
 
 const Layout = (props) =>{
     return(

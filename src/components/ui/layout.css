@@ -1,6 +1,5 @@
 .layout {
     width: 380px;
-    height: 380px;
     padding: 10px;
     border-radius: 10px;
     background-color: rgb(16, 16, 34);
@@ -39,7 +38,7 @@
     background-color: rgb(224, 219, 219);
     color: rgb(16, 16, 34);
     border:solid transparent; 
-    border-radius:8px;
+    border-radius:8px !important;
     border-width: 0 0 4;
     box-sizing: border-box;
     box-shadow: rgba(255, 255, 255, 0.26) 0 1px 2px inset;
@@ -62,7 +61,8 @@
     display: flex;
     grid-template: 50%, 50%;
     grid-gap: 10px;
-    padding-top: 0;
+    
+    padding: 20px;
     margin: 0;
   }
 .reset-btn{
