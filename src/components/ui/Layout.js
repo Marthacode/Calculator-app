@@ -12,7 +12,7 @@ const [result, setResult] = useState("");
    
         function handleClick(e) {
             if (e === "DEL"){
-                    setResult(result.slice(0, -1) )
+                    setResult(result.slice(0, -1))
                 return
             }
         setResult(result.concat(e));
