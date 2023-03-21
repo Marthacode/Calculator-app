@@ -1,13 +1,6 @@
 import React, { useState } from "react"
 import './layout.css'
 
-const btnValues =[
-    [7, 8, 9, "DEL"],
-    [4, 5, 6, "="],
-    [1, 2, 3, "-"],
-    [".", 0, "/", "X"]
-]
-
 
 const Layout = (props) =>{
     // destructuring an array
@@ -15,24 +8,47 @@ const Layout = (props) =>{
     // const [kola,david] = daniella
 
     // console.log(kola,david);
+const [result, setResult] = useState("");
+   
+        function handleClick(e) {
+        setResult(result.concat(e));
+        }
 
-    const [firstValue,setValue] = useState("");
-    // console.log(calcValue);
-    const [secondValue,setSecond] = useState("0");
-    const [calculatedValue,setCalc] = useState("0");
+        function handleClear() {
+            setResult("");
+        }
 
-    const [operand,setOperand] = useState("");
+        function handleCalculate() {
+            try {
+                setResult(eval(result).toString())
+            } catch (error) {
+                setResult("Error");
+            }
+        }
     
+    // const [firstValue,setValue] = useState("");
+    // console.log(calcValue);
+    // const [secondValue,setSecond] = useState("0");
+    // const [calculatedValue,setCalc] = useState("0");
+
+    // const [operand,setOperand] = useState("");
+   
+    // function changeFirstValue(currentValue,type){
+    //     if (type === "operand") {
+    //         setOperand(eval(firstValue).toString())
+    //     }else {}
+    // }
     // function incrementValue() {
     //     setValue(calcValue+5)
     // }
-    function changeFirstValue(currentValue,type) {
-        if (type === "operand"){
-            setOperand(currentValue)
-            return
-        }
-        setValue(firstValue + currentValue)
-    }
+    // function changeFirstValue(currentValue,type) {
+    //     if (type === "operand"){
+    //         setOperand(currentValue)
+    //         return
+    //     }
+    //     setValue(firstValue + currentValue)
+    // }
+
     // function sum() {
     //     firstValue + secondValue
     // }
@@ -62,16 +78,16 @@ const Layout = (props) =>{
                 <h6>THEME</h6>
             </div>
         <div className="layout">
-            <div className="displayScreen">{firstValue}{operand}</div>
+            <div className="displayScreen">{result}</div>
             <div className="button-box">
                
-                {calcNumbers.map(element => (<button onClick={() => {changeFirstValue(element.value,element.type)}}>{element.value}</button>)
+                {calcNumbers.map(element => (<button onClick={() => {handleClick(element.value,element.type)}}>{element.value}</button>)
                     
                 )}
             </div>
             <div className="last-btn">
-            <button className="reset-btn">RESET</button>
-            <button className="equal-btn">=</button>
+            <button className="reset-btn" onClick={handleClear}>Reset</button>
+            <button className="equal-btn" onClick={handleCalculate}>=</button>
             </div>
  
         </div>
