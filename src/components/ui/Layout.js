@@ -11,13 +11,13 @@ const Layout = (props) =>{
 
     // console.log(kola,david);
 const [result, setResult] = useState("");
+const [operand,setOperand] = useState("");
    
         function handleClick(e) {
         setResult(result.concat(e));
         }
 
     const [firstValue,setValue] = useState("");
-    const [operand,setOperand] = useState("");
     // console.log(calcValue);
     // const [secondValue,setSecond] = useState("");
    // const [calculatedValue,setCalc] = useState("");
