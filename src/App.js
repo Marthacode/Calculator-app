@@ -1,3 +1,5 @@
+import Layout from './components/ui/Layout';
+
 import './App.css';
 
 function add(a,b){
@@ -14,6 +16,7 @@ function subtract(a,b){
 function App() {
   return (
     <div className="App">
+      <Layout /> 
 
     </div>
   );
