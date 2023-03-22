@@ -1,12 +1,7 @@
 import React, { useState } from "react"
 import './layout.css'
 
-const btnValues =[
-    [7, 8, 9, "DEL"],
-    [4, 5, 6, "="],
-    [1, 2, 3, "-"],
-    [".", 0, "/", "X"]
-]
+
 
 
 const Layout = (props) =>{
@@ -18,8 +13,8 @@ const Layout = (props) =>{
 
     const [firstValue,setValue] = useState("");
     // console.log(calcValue);
-    const [secondValue,setSecond] = useState("0");
-    const [calculatedValue,setCalc] = useState("0");
+    // const [secondValue,setSecond] = useState("");
+   // const [calculatedValue,setCalc] = useState("");
 
     const [operand,setOperand] = useState("");
     
@@ -33,6 +28,14 @@ const Layout = (props) =>{
         }
         setValue(firstValue + currentValue)
     }
+ //  function changeSecondValue(currentValue, type){
+ //      if (type === "number"){
+ //          setSecond(currentValue)
+ //           return
+ //       }
+ //       setValue(currentValue + secondValue)
+//  }
+   
     // function sum() {
     //     firstValue + secondValue
     // }
@@ -52,20 +55,19 @@ const Layout = (props) =>{
         {value:".",type:"number"},
         {value:0,type:"number"},
         {value:"/",type:"operand"},
-        {value:"X",type:"operand"},
+        {value:"x",type:"operand"},
     ]
 
     return(
         <div>
-                <div className="heading">
-                <h5>calc</h5>
-                <h6>THEME</h6>
-            </div>
+           
         <div className="layout">
             <div className="displayScreen">{firstValue}{operand}</div>
             <div className="button-box">
                
-                {calcNumbers.map(element => (<button onClick={() => {changeFirstValue(element.value,element.type)}}>{element.value}</button>)
+                {calcNumbers.map(element => (<button onClick={() =>
+                 {changeFirstValue(element.value,element.type)}}>{element.value}
+                 </button>)
                     
                 )}
             </div>
