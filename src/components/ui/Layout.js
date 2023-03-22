@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import './layout.css'
 
 
@@ -9,6 +9,7 @@ const Layout = (props) =>{
 
     // console.log(kola,david);
 const [result, setResult] = useState("");
+const [show, setShow] = useState(true);
    
         function handleClick(e) {
             if (e === "DEL"){
@@ -75,8 +76,21 @@ const [result, setResult] = useState("");
         {value:"/",type:"operand"},
         {value:"X",type:"operand"},
     ]
-
+    function toggleShow() {
+        setShow(!show)
+    }
+    useEffect(() => { 
+        
+        setTimeout(
+            () =>{toggleShow()},1000
+        )
+        // setResult("Martha" + "Dannie")
+        console.log("Dee")
+        },[result]); //dependency array
+       
     return(
+    
+    
         <div>
                 <div className="heading">
                 <h5>calc</h5>
@@ -84,14 +98,20 @@ const [result, setResult] = useState("");
             </div>
         <div className="layout">
             <div className="displayScreen">{result}</div>
-            <div className="button-box">
+            {
+                show ? <div className="button-box">
                
                 {calcNumbers.map(element => (<button onClick={() => {handleClick(element.value,element.type)}}>{element.value}</button>)
                     
                 )}
-            </div>
+            </div> : null
+            }
+            
             <div className="last-btn">
             <button className="reset-btn" onClick={handleClear}>Reset</button>
+
+            <button className="reset-btn" onClick={toggleShow}>Toggle</button>
+
             <button className="equal-btn" onClick={handleCalculate}>=</button>
             </div>
  
