@@ -10,14 +10,38 @@ const Layout = (props) =>{
     // const [kola,david] = daniella
 
     // console.log(kola,david);
+const [result, setResult] = useState("");
+   
+        function handleClick(e) {
+        setResult(result.concat(e));
+        }
 
     const [firstValue,setValue] = useState("");
+    const [operand,setOperand] = useState("");
     // console.log(calcValue);
     // const [secondValue,setSecond] = useState("");
    // const [calculatedValue,setCalc] = useState("");
 
-    const [operand,setOperand] = useState("");
+        function handleCalculate() {
+            try {
+                setResult(eval(result).toString())
+            } catch (error) {
+                setResult("Error");
+            }
+        }
     
+    // const [firstValue,setValue] = useState("");
+    // console.log(calcValue);
+    // const [secondValue,setSecond] = useState("0");
+    // const [calculatedValue,setCalc] = useState("0");
+
+    // 
+   
+    // function changeFirstValue(currentValue,type){
+    //     if (type === "operand") {
+    //         setOperand(eval(firstValue).toString())
+    //     }else {}
+    // }
     // function incrementValue() {
     //     setValue(calcValue+5)
     // }
@@ -62,7 +86,7 @@ const Layout = (props) =>{
         <div>
            
         <div className="layout">
-            <div className="displayScreen">{firstValue}{operand}</div>
+            <div className="displayScreen">{result}</div>
             <div className="button-box">
                
                 {calcNumbers.map(element => (<button onClick={() =>
@@ -72,8 +96,8 @@ const Layout = (props) =>{
                 )}
             </div>
             <div className="last-btn">
-            <button className="reset-btn">RESET</button>
-            <button className="equal-btn">=</button>
+            <button className="reset-btn" onClick={handleClear}>Reset</button>
+            <button className="equal-btn" onClick={handleCalculate}>=</button>
             </div>
  
         </div>
